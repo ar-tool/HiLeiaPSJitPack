@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="24dp"
+    android:background="@drawable/shape_round_rect_comm">
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_modify_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:textSize="@dimen/sp_14"
+        android:gravity="center"
+        android:maxLength="250"
+        android:singleLine="true"
+        android:hint="@string/input_title"
+        android:textColorHint="@color/color_blue"
+        android:textColor="@color/gray_color_level_5"
+        android:background="@drawable/edit_tile_bg"/>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <com.hiscene.presentation.ui.widget.HiAlphaTextView
+            android:id="@+id/edit_modify_cancel"
+            android:layout_width="0dp"
+            app:layout_constraintHorizontal_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="#333333"
+            android:text="@string/cancel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/edit_modify_confirm"
+            android:background="@drawable/bg_round_4_f4f4f4"
+            android:textSize="16sp"/>
+
+        <com.hiscene.presentation.ui.widget.HiAlphaTextView
+            android:id="@+id/edit_modify_confirm"
+            android:layout_width="0dp"
+            app:layout_constraintHorizontal_weight="1"
+            android:text="@string/confirm"
+            android:gravity="center"
+            android:background="@drawable/bg_round_4_blue"
+            android:layout_height="match_parent"
+            android:textColor="@color/white_color"
+            android:layout_marginStart="24dp"
+            app:layout_constraintStart_toEndOf="@+id/edit_modify_cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="16sp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

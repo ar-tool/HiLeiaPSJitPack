@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.hiscene.hileia"
+    android:versionCode="1"
+    android:versionName="2.1.19" >
+
+    <uses-sdk
+        android:minSdkVersion="21"
+        android:targetSdkVersion="27" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Doze模式 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission-sdk-23 android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application>
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.1" />
+
+        <activity
+            android:name="com.hiscene.presentation.ui.activity.SearchActivity"
+            android:configChanges="mcc|mnc|orientation|keyboardHidden|screenSize|keyboard|touchscreen|layoutDirection|navigation|fontScale|screenLayout"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name="com.hiscene.presentation.ui.activity.ContactActivity"
+            android:configChanges="mcc|mnc|orientation|keyboardHidden|screenSize|keyboard|touchscreen|layoutDirection|navigation|fontScale|screenLayout"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <activity
+            android:name="com.hiscene.presentation.ui.activity.CallingActivity"
+            android:configChanges="mcc|mnc|orientation|keyboardHidden|screenSize|keyboard|touchscreen|layoutDirection|navigation|fontScale|screenLayout"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <activity
+            android:name="com.hiscene.presentation.ui.activity.RecordingActivity"
+            android:configChanges="mcc|mnc|orientation|keyboardHidden|screenSize|keyboard|touchscreen|layoutDirection|navigation|fontScale|screenLayout"
+            android:exported="true"
+            android:noHistory="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" >
+
+            <!-- URL Scheme启动 -->
+            <intent-filter>
+
+                <!-- 必有项 -->
+                <action android:name="android.intent.action.VIEW" />
+                <!-- 如果希望该应用可以通过浏览器的连接启动，则添加该项 -->
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- 表示该页面可以被隐式调用，必须加上该项 -->
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- hileiaps://platformapi/recordapp?action=record&username=15612340112&password=A123456&userId=420431 -->
+                <!-- <a href="hileiaps://platformapi/recordapp?action=record&username=15612340112&password=A123456">网页调用唤起焦点记录</a> -->
+                <!--
+                    App上调用唤起焦点记录
+                    Intent action = new Intent(Intent.ACTION_VIEW);
+                    StringBuilder builder = new StringBuilder();
+                    builder.append("hileiaps://platformapi/recordapp?action=record");
+                    action.setData(Uri.parse(builder.toString()));
+                    action.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(action);
+                -->
+                <!-- 协议部分 -->
+                <data
+                    android:host="platformapi"
+                    android:path="/recordapp"
+                    android:scheme="hileiaps" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.hiscene.presentation.ui.activity.RecordListActivity"
+            android:configChanges="mcc|mnc|orientation|keyboardHidden|screenSize|keyboard|touchscreen|layoutDirection|navigation|fontScale|screenLayout"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <activity
+            android:name="com.hiscene.presentation.ui.activity.VideoPlayerActivity"
+            android:configChanges="mcc|mnc|orientation|keyboardHidden|screenSize|keyboard|touchscreen|layoutDirection|navigation|fontScale|screenLayout"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <activity
+            android:name="com.hiscene.presentation.ui.activity.MultiSelectContactActivity"
+            android:configChanges="mcc|mnc|orientation|keyboardHidden|screenSize|keyboard|touchscreen|layoutDirection|navigation|fontScale|screenLayout"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <activity
+            android:name="com.hiscene.presentation.ui.activity.ComingCallActivity"
+            android:configChanges="mcc|mnc|orientation|keyboardHidden|screenSize|keyboard|touchscreen|layoutDirection|navigation|fontScale|screenLayout"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.hiscene.presentation.scanner.ScannerActivity"
+            android:configChanges="mcc|mnc|orientation|keyboardHidden|screenSize|keyboard|touchscreen|layoutDirection|navigation|fontScale|screenLayout"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.hiscene.presentation.ui.activity.MakingCallActivity"
+            android:configChanges="mcc|mnc|orientation|keyboardHidden|screenSize|keyboard|touchscreen|layoutDirection|navigation|fontScale|screenLayout"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.hiscene.presentation.ui.activity.JoinMeetingActivity"
+            android:configChanges="mcc|mnc|orientation|keyboardHidden|screenSize|keyboard|touchscreen|layoutDirection|navigation|fontScale|screenLayout"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.hiscene.presentation.filebrowser.ui.FilePickerActivity"
+            android:configChanges="mcc|mnc|orientation|keyboardHidden|screenSize|keyboard|touchscreen|layoutDirection|navigation|fontScale|screenLayout"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.hiscene.presentation.filebrowser.ui.FileReceiveActivity"
+            android:configChanges="mcc|mnc|orientation|keyboardHidden|screenSize|keyboard|touchscreen|layoutDirection|navigation|fontScale|screenLayout"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <activity
+            android:name="com.hiscene.presentation.ui.activity.ImageDetailsActivity"
+            android:configChanges="mcc|mnc|orientation|keyboardHidden|screenSize|keyboard|touchscreen|layoutDirection|navigation|fontScale|screenLayout"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <activity
+            android:name="com.hiscene.presentation.ui.activity.KeepLiveActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:finishOnTaskLaunch="false"
+            android:launchMode="singleInstance"
+            android:theme="@style/OnePixelActivityTheme" />
+        <activity
+            android:name="com.hiscene.easyphotos.ui.EasyPhotosActivity"
+            android:configChanges="mcc|mnc|orientation|keyboardHidden|screenSize|keyboard|touchscreen|layoutDirection|navigation|fontScale|screenLayout"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/EasyPhotosTheme"
+            tools:replace="android:screenOrientation" />
+        <activity
+            android:name="com.hiscene.easyphotos.ui.PreviewActivity"
+            android:configChanges="mcc|mnc|orientation|keyboardHidden|screenSize|keyboard|touchscreen|layoutDirection|navigation|fontScale|screenLayout"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/EasyPhotosFullscreenTheme"
+            tools:replace="android:screenOrientation" />
+        <activity
+            android:name="com.hiscene.easyphotos.ui.PuzzleActivity"
+            android:configChanges="mcc|mnc|orientation|keyboardHidden|screenSize|keyboard|touchscreen|layoutDirection|navigation|fontScale|screenLayout"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/EasyPhotosTheme"
+            android:windowSoftInputMode="adjustPan"
+            tools:replace="android:screenOrientation" />
+        <activity
+            android:name="com.hiscene.easyphotos.ui.PuzzleSelectorActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/EasyPhotosTheme"
+            tools:replace="android:screenOrientation" />
+
+        <service
+            android:name="com.hiscene.mediaengine.engines.ScreenCaptureService"
+            android:enabled="true"
+            android:exported="true"
+            android:foregroundServiceType="mediaProjection" >
+            <intent-filter>
+                <action android:name="android.intent.action.screenshare" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.hiscene.presentation.receiver.NetworkBroadReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
+        <meta-data
+            android:name="com.hiscene.data.glidemodule.HiGlideModule"
+            android:value="AppGlideModule" />
+
+        <!-- <provider -->
+        <!-- android:name="com.hiscene.presentation.core.LibraryProvider" -->
+        <!-- android:authorities="${applicationId}.hileiaps.libraryprovider" -->
+        <!-- android:exported="false"> -->
+        <!-- </provider> -->
+
+        <service
+            android:name="com.hiscene.presentation.service.FloatVideoWindowService"
+            android:exported="false" >
+        </service>
+
+        <provider
+            android:name="com.hiar.webcore.EasyWebFileProvider"
+            android:authorities="${applicationId}.webcore.EasyWebFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/web_files_public" />
+        </provider> <!-- close auto-init -->
+        <meta-data
+            android:name="io.sentry.auto-init"
+            android:value="false" />
+
+        <service
+            android:name="com.hiscene.hileiaps.service.KeepSDKService"
+            android:exported="false" />
+        <service
+            android:name="com.hiscene.hileiaps.service.RecordUploadService"
+            android:exported="false" />
+        <service
+            android:name="com.hiscene.hileiaps.service.CallingMessageService"
+            android:exported="false" />
+
+        <provider
+            android:name="com.hiscene.permission.PermissionInitProvider"
+            android:authorities="${applicationId}.permission.PermissionInitProvider"
+            android:exported="false" />
+        <provider
+            android:name="com.hiscene.publiclib.custom.HiLeiaPSFileProvider"
+            android:authorities="${applicationId}.hileiaps.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/ps_file_paths" />
+        </provider>
+
+        <receiver
+            android:name="com.hiscene.publiclib.bgstart.NotificationKeepReceiver"
+            android:exported="false" />
+    </application>
+
+</manifest>

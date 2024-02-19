@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/contact_select_list_icon_width"
+    android:layout_height="@dimen/contact_select_list_icon_height"
+    android:layout_margin="@dimen/dp_4">
+
+    <com.hiscene.publiclib.widget.NiceImageView
+        android:id="@+id/selected_contact_img_avatar"
+        android:layout_width="@dimen/contact_select_list_icon_width"
+        android:layout_height="@dimen/contact_select_list_icon_height"
+        app:corner_radius="@dimen/reference_corner_radius"
+        app:is_circle="true"
+        app:is_cover_src="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:text_color="@color/avatar_text_color"
+        tools:ignore="contentDescription" />
+</LinearLayout>

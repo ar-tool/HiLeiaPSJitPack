@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/list_item_select_height"
+    android:paddingStart="14dp"
+    android:background="@color/white_color">
+
+    <CheckBox
+        android:id="@+id/select_contact_cb"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:button="@drawable/check_box_invite_selector"
+        android:clickable="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_status"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription"
+        tools:src="@drawable/glasses_online" />
+
+    <com.hiscene.publiclib.widget.MediumBoldTextView
+        android:id="@+id/tv_select_contact_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="30dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="@color/select_contact_color"
+        android:textSize="@dimen/normal_text_size"
+        app:layout_constraintBottom_toTopOf="@id/txt_offline"
+        app:layout_constraintEnd_toEndOf="@id/img_status"
+        app:layout_constraintStart_toEndOf="@id/select_contact_img_avatar"
+        app:layout_constraintTop_toTopOf="@id/select_contact_img_avatar"
+        tools:text="联系人联系人联系人联系人联系人联系人联系人联系人联系人联系人联系人联系人联系人联系人联系人联系人联系人联系人联系人联系人" />
+
+    <TextView
+        android:id="@+id/txt_comment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:ellipsize="end"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:textColor="@color/gray_color_level_9"
+        android:textSize="@dimen/small_text_size"
+        android:text="@string/label_offline"
+        app:layout_constraintEnd_toEndOf="@id/img_status"
+        app:layout_constraintStart_toEndOf="@id/select_contact_img_avatar"
+        app:layout_constraintTop_toBottomOf="@id/tv_select_contact_name"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/txt_offline"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="10dp"
+        android:ellipsize="end"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:visibility="gone"
+        android:textColor="@color/gray_color_level_9"
+        android:textSize="@dimen/small_text_size"
+        android:text="@string/label_offline"
+        app:layout_constraintBottom_toBottomOf="@id/select_contact_img_avatar"
+        app:layout_constraintEnd_toEndOf="@id/img_status"
+        app:layout_constraintStart_toEndOf="@id/select_contact_img_avatar"
+        app:layout_constraintTop_toBottomOf="@id/tv_select_contact_name" />
+
+    <View
+        android:id="@+id/v_divide_line"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/divide_height_size"
+        android:visibility="gone"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="14dp"
+        android:background="@color/select_divide_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/select_contact_cb" />
+
+    <com.hiscene.publiclib.widget.NiceImageView
+        android:id="@+id/select_contact_img_avatar"
+        android:layout_width="@dimen/contact_select_list_icon_width"
+        android:layout_height="@dimen/contact_select_list_icon_height"
+        android:layout_marginStart="14dp"
+        tools:src="@drawable/default_portrait"
+        app:corner_radius="@dimen/reference_corner_radius"
+        app:is_circle="true"
+        app:is_cover_src="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_select_contact_name"
+        app:layout_constraintStart_toEndOf="@id/select_contact_cb"
+        app:layout_constraintTop_toTopOf="parent"
+        app:text_color="@color/avatar_text_color"
+        tools:ignore="contentDescription" />
+</androidx.constraintlayout.widget.ConstraintLayout>

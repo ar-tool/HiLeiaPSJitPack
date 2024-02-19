@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_conference"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.hiscene.presentation.ui.widget.HiAlphaImageButton
+            android:id="@+id/video_player_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:src="@drawable/ic_arrow_back"
+            android:background="@null"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_video_player"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_video_player"/>
+
+        <TextView
+            android:id="@+id/tv_video_player"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:textColor="@color/black_color"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:text="@string/record_detail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@color/black_color">
+        <com.hiscene.presentation.ui.widget.PlayVideoView
+            android:id="@+id/simple_videoView"
+            android:layout_width="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="match_parent"
+            app:layout_constraintDimensionRatio="9:16"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_marks"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layout_constraintTop_toBottomOf="@+id/video_player_record"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_video_control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        android:background="@color/white_color"
+        android:orientation="horizontal">
+
+        <com.hiscene.presentation.ui.widget.HiAlphaTextView
+            android:id="@+id/tv_record_delete"
+            android:layout_width="0dp"
+            app:layout_constraintHorizontal_weight="1"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:textColor="#4266F5"
+            android:text="@string/delete"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_restart_up"
+            android:background="@drawable/bg_round_4_f4f4f4"
+            android:textSize="16sp"/>
+
+        <com.hiscene.presentation.ui.widget.HiAlphaTextView
+            android:id="@+id/tv_restart_up"
+            android:layout_width="0dp"
+            app:layout_constraintHorizontal_weight="1"
+            android:text="@string/upload_restart"
+            android:gravity="center"
+            android:background="@drawable/bg_round_4_blue"
+            android:layout_height="48dp"
+            android:textColor="@color/text_half_dark"
+            android:layout_marginStart="24dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_record_delete"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="16sp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

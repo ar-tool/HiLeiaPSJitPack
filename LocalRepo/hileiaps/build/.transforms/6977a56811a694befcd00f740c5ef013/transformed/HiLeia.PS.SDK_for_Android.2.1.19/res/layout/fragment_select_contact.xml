@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_create_group"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_color"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:id="@+id/tvSelectBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_back_selector"
+            android:backgroundTint="@color/black_color"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/tvSelectTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="80dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/black_color"
+            android:textSize="@dimen/title_text_size"
+            tools:text="@string/select_contacts" />
+
+
+        <TextView
+            android:id="@+id/tvContactEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="@string/external_contacts"
+            android:textColor="#FF0084FF"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/external_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="@color/select_divide_color">
+
+        <LinearLayout
+            android:layout_width="435dp"
+            android:layout_height="183dp"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:background="@color/white_color">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/externalInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="@dimen/common_item_margin_start"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="@dimen/common_item_margin_end"
+                android:textColorHint="@color/gray_color_level_1"
+                android:transitionName="@string/loginTextInputTrans"
+                app:boxCollapsedPaddingTop="3dp"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/register_title">
+
+                <com.hiscene.presentation.ui.widget.ClearEditText
+                    android:id="@+id/editText_external"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_edittext_line"
+                    android:digits="1234567890 "
+                    android:hint="@string/external_contacts_input"
+                    android:importantForAutofill="noExcludeDescendants"
+                    android:inputType="phone"
+                    android:paddingStart="40dp"
+                    android:singleLine="true"
+                    android:maxLength="13"
+                    android:textSize="@dimen/normal_text_size"
+                    app:showType="phone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.hiscene.presentation.ui.widget.HiAlphaButton
+                android:id="@+id/btn_external"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="80dp"
+                android:text="@string/confirm"
+                android:textColor="@color/white_color"
+                android:textSize="@dimen/normal_text_size"
+                android:gravity="center"
+                android:background="@drawable/btn_state_normal"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_corp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_color"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingTop="8dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="8dp">
+
+            <com.hiscene.presentation.ui.widget.SearchEditText
+                android:id="@+id/et_search"
+                style="@style/searchEditStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/search_edittext_height"
+                android:layout_gravity="start"
+                android:background="@drawable/search_select_bg"
+                tools:targetApi="m" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/llTop"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/white_color"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <com.yanzhenjie.recyclerview.SwipeRecyclerView
+                android:id="@+id/rv_organization"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layoutAnimation="@anim/layout_animation_slide_right"
+                android:scrollbars="none" />
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeRefresh"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.yanzhenjie.recyclerview.SwipeRecyclerView
+                    android:id="@+id/create_group_rvContacts"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layoutAnimation="@anim/layout_animation_slide_right"
+                    android:scrollbars="none" />
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+            <com.hiscene.presentation.ui.widget.ContactSideBar
+                android:id="@+id/sidebar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/side_bar_height"
+                android:layout_centerInParent="true"
+                android:visibility="gone"
+                app:chooseTextColor="@color/blue_color_level_7"
+                app:circleRadius="18dp"
+                app:hintTextSize="@dimen/normal_text_size"
+                app:item_radius="0dp"
+                app:side_backgroundColor="@color/gray_color_level_0"
+                app:textColor="@color/gray_color_level_3"
+                app:textSize="@dimen/extra_small_text_size" />
+
+            <TextView
+                android:id="@+id/member_count"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:textColor="@color/gray_color_level_3"
+                android:textSize="@dimen/medium_text_size"
+                android:visibility="gone"
+                tools:text="共0人" />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_bottom_view"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/pull_imageview"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/transparent"
+                android:src="@drawable/pull_up"
+                android:visibility="gone"
+                tools:ignore="ContentDescription"/>
+
+
+            <RelativeLayout
+                android:id="@+id/rlSelectedContacts"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/white_color"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:paddingStart="7dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="5dp"
+                android:paddingBottom="5dp">
+
+                <!--被选中的联系人头像列表-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSelectedContacts"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/create_group_confirm_tv_expand"
+                    android:layout_toStartOf="@+id/create_group_confirm_tv"
+                    android:clickable="true"
+                    android:gravity="start"
+                    android:orientation="horizontal"
+                    android:scrollbars="none"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/create_group_confirm_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="10dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/btn_state_normal"
+                    android:textColor="@color/white_color"
+                    android:textSize="@dimen/medium_text_size"
+                    tools:text="确定(3/5)" />
+
+                <TextView
+                    android:id="@+id/create_group_confirm_tv_expand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/dp_10"
+                    android:gravity="center"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:visibility="gone"
+                    android:textColor="@color/white_color"
+                    android:textSize="@dimen/medium_text_size"
+                    tools:text="确定(3/5)" />
+            </RelativeLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/src_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/src_pic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            android:scaleType="matrix"
+            tools:ignore="ContentDescription" />
+
+        <com.hiscene.presentation.ui.widget.ClipSquareView
+            android:id="@+id/clip_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/black_color_light"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/text_crop_cancel"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="@color/white_color"
+            android:textSize="@dimen/normal_text_size"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:id="@+id/text_crop_confirm"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:text="@string/choose"
+            android:textColor="@color/white_color"
+            android:textSize="@dimen/normal_text_size"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+
+</LinearLayout>

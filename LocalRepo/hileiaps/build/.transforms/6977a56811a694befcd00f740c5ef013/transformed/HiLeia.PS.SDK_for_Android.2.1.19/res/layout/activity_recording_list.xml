@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_color"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.hiscene.presentation.ui.widget.HiAlphaImageButton
+            android:id="@+id/record_list_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:src="@drawable/ic_arrow_back"
+            android:background="@null"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_list_record"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_list_record"/>
+
+        <TextView
+            android:id="@+id/tv_list_record"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:textColor="@color/black_color"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:text="@string/record_list"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        android:background="@color/bg_conference" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout_list"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        app:tabIndicator="@drawable/shape_tab_indicator"
+        app:tabIndicatorColor="@color/color_blue"
+        app:tabIndicatorHeight="3dp"
+        app:tabRippleColor="@android:color/transparent"
+        app:tabTextColor="@color/gray_color_level_5"
+        app:tabSelectedTextColor="@color/black_color"
+        app:tabGravity="fill"
+        app:tabMode="fixed"
+        app:tabIndicatorFullWidth="false" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager_record"
+        android:background="@color/window_background_light"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
