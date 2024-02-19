@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_round_rect_comm"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_choose_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:background="@drawable/edit_tile_bg"
+        android:gravity="center"
+        android:hint="@string/input_title"
+        android:maxLength="250"
+        android:singleLine="true"
+        android:textColor="@color/gray_color_level_5"
+        android:textColorHint="@color/color_blue"
+        android:textSize="@dimen/sp_14" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_category"
+        android:layout_width="280dp"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edit_tile_bg">
+
+        <com.hiscene.presentation.ui.widget.HiAlphaTextView
+            android:id="@+id/tv_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_category"
+            android:textColor="@color/gray_color_level_5"
+            android:textSize="@dimen/sp_14"
+            android:scrollbars="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_category"
+            android:layout_width="@dimen/dp_10"
+            android:layout_height="8dp"
+            android:layout_marginStart="2dp"
+            android:src="@drawable/ic_down"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_category"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.hiscene.presentation.ui.widget.recyclerviewhelper.MaxHeightRecyclerView
+        android:id="@+id/rv_category"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/shape_item_source_selected"
+        app:rvMaxHeight="110dp"
+        tools:listitem="@layout/item_category"
+        tools:itemCount="3"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <com.hiscene.presentation.ui.widget.HiAlphaTextView
+            android:id="@+id/edit_dialog_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_round_4_f4f4f4"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/edit_dialog_confirm"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.hiscene.presentation.ui.widget.HiAlphaTextView
+            android:id="@+id/edit_dialog_confirm"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/bg_round_4_blue"
+            android:gravity="center"
+            android:text="@string/confirm"
+            android:textColor="@color/white_color"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/edit_dialog_cancel" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

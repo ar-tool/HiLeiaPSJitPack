@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_no_permissions"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/bg_in_call"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/mSkeletonEmpty"
+        android:layout_width="300dp"
+        android:layout_height="216dp"
+        android:layout_gravity="center"
+        android:src="@drawable/skeleton_net_error"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/mSkeletonEmptyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        android:text = "@string/exception_message_no_connection"
+        android:textColor="@color/gray_color_level_1" />
+
+</LinearLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_tv_category"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:textSize="@dimen/sp_14"
+    android:gravity="center"
+    android:maxLines="1"
+    android:ellipsize="end"
+    android:textColor="@color/tv_category_selector"
+    android:padding="10dp"
+    tools:text="选择222222222222222222222222222222222222222212222222222222222122222222222一">
+
+</TextView>
