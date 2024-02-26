@@ -68,8 +68,8 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
                 groupId = 'com.hiar.ar-tool'
-                artifactId = 'hileiaps-android'
-                version = '2.1.19-rc03'
+                artifactId = 'hileiaps-android'//目前看没用
+                version = '2.1.19-rc03' //目前看没用
             }
         }
     }
