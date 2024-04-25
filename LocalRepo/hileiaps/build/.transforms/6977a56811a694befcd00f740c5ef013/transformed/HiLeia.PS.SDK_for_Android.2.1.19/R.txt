@@ -4565,6 +4565,7 @@ int string not_selected 0x0
 int string not_selected_hint 0x0
 int string number 0x0
 int string off 0x0
+int string offline_toast 0x0
 int string ok 0x0
 int string on 0x0
 int string online 0x0

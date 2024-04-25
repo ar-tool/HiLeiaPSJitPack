@@ -422,6 +422,7 @@
     <string name="not_record_state">Not Record State!</string>
     <string name="not_selected_hint">You haven\'t select contacts</string>
     <string name="number">Pcs</string>
+    <string name="offline_toast">The other party may not be online.</string>
     <string name="ok">OK</string>
     <string name="online">Online</string>
     <string name="open_camera">open camera</string>

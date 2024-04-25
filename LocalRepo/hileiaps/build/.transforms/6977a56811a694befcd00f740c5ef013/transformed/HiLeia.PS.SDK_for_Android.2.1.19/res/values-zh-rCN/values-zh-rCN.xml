@@ -422,6 +422,7 @@
     <string name="not_record_state">非录制状态！</string>
     <string name="not_selected_hint">您还未选择联系人</string>
     <string name="number">个</string>
+    <string name="offline_toast">对方可能不在线</string>
     <string name="ok">确定</string>
     <string name="online">Online</string>
     <string name="open_camera">打开相机</string>
